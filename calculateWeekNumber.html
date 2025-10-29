@@ -1,0 +1,46 @@
+
+<html>   
+<head>   
+    <title> Calculate week number </title>   
+      <script>  
+       function weekNumber() {  
+  
+         //define a variable and fetch the input from HTML form  
+         var dateinput = document.getElementById("dateInput1").value;  
+  
+        //create a date object variable to store the date values  
+         var date1 = new Date(dateinput);  
+   
+      //find the year of the current date  
+       var oneJan =  new Date(date1.getFullYear(), 0, 1);   
+    
+       // calculating number of days in given year before the given date   
+       var numberOfDays =  Math.floor((date1 - oneJan) / (24 * 60 * 60 * 1000));   
+    
+       // adding 1 since to current date and returns value starting from 0   
+       var result = Math.ceil(( date1.getDay() + 1 + numberOfDays) / 7);     
+  
+       //return the calculated result and display it  
+       return document.getElementById("result").innerHTML =  "Week number of given date is: " + result;  
+       }  
+      </script>    
+</head>    
+<body>   
+    
+    <h2 style="color: 32A80F" align="Center">    
+            TpointTech: Calculate Week Number using user input   
+        <br> <br> </h2>   
+    
+        <p align="Center"> <b> Enter date  </b>   
+        <input type="date" id="dateInput1">   
+        <br> <br>      
+    
+        <button onclick="weekNumber()">   
+          Calculate Week Number   
+        </button>   
+    </p>   
+    
+    <h3 style="color:32A80F" id="result" align="center"></h3>   
+    
+</body>    
+</html>  
